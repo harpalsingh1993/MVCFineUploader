@@ -122,7 +122,7 @@
             //    enabled: true,
             //    endpoint: "/vendor/fineuploader/php-traditional-server/endpoint.php"
             //},
-            chunking: {
+            @*chunking: {
                 enabled: true,
                 concurrent: {
                     enabled: true
@@ -130,13 +130,19 @@
                 success: {
                     endpoint: "http://localhost:52393/Home/Aboutus"
                 }
-            },
-            resume: {
-                enabled: true
-            },
-            retry: {
-                enableAuto: true,
-                showButton: true
+            },*@
+            //resume: {
+            //    enabled: true
+            //},            
+            callbacks: {
+                onAllComplete: function (succeeded, failed) {
+                    if (succeeded.length > 0) {
+                        succeeded.forEach(function (fileId, index) {
+                            var imageId = "image" + index;
+                            //document.getElementById(imageId).src = 'images/' + userId + '/' + listingUploader.getUuid(fileId) + ".jpg";
+                        });
+                    }
+                }
             }
         });
 </script>

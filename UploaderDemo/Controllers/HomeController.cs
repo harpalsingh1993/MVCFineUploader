@@ -24,7 +24,7 @@ namespace UploaderDemo.Controllers
                 var filePath = Path.Combine(dir, upload.Filename);
             try
             {
-                upload.SaveAs(filePath);
+                upload.SaveAs(filePath, true);
             }
             catch (Exception ex)
             {
